@@ -1,9 +1,8 @@
 var myObject = {
   superPower: "strength",
   anotherProperty: "strong",
-
 };
-console.log(myObject);
+
 /**
  * PART 0
  *
@@ -123,10 +122,17 @@ console.assert(rovarspraket(0) === "0")
  * reverse("skoob") should return the
  * string "books".
  */
+// found this helpful https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.iu2rxssjf
+function reverse(str) {
+  var reverseWord = "";
+  for (var i = str.length - 1; i >=0; i--) {
+  reverseWord += str[i]; // or reverseWord = reverseWord + str[i];
+  }
+  return reverseWord;
 
-function reverse(str){
-    // YOUR CODE HERE
-}
+
+
+
 
 console.assert(reverse("books") === "skoob")
 console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
@@ -141,7 +147,12 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  */
 
 function findLongestWord(sentence){
-    // YOUR CODE HERE
+  var words = sentence.replace (/[^A-Za-z\s']/g,"").split ("");
+  var wordsByDesendingLength = words.sort (function (a,b) {
+      return b.length - a.length;
+  });
+  return wordsByDesendingLength[0]
+
 }
 
 console.assert(findLongestWord("book dogs") === "book")
